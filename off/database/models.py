@@ -6,6 +6,7 @@ import enum
 Base = declarative_base()
 
 class StatusEnum(str, enum.Enum):
+    pending = "pending"
     paid = "paid"
     expired = "expired"
     deleted = "deleted"
@@ -18,7 +19,7 @@ class Receipt(Base):
     payment_id = Column(String, nullable=False)
     file_path = Column(String, nullable=False)
     receipt_url = Column(String, nullable=True)
-    status = Column(Enum(StatusEnum), default=StatusEnum.paid)
+    status = Column(Enum(StatusEnum), default=StatusEnum.pending)
     created_at = Column(DateTime, default=datetime.utcnow)
     expires_at = Column(DateTime, default=lambda: datetime.utcnow() + timedelta(days=90))
 
