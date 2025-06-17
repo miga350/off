@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
-from handlers import start_handler, upload_handler, payment_handler, check_handler
+from handlers import start_handler, file_handler, payment_handler, receipts
 from cleaner_unpaid import clean_unpaid_files
 import logging
 import os
@@ -17,9 +17,9 @@ dp = Dispatcher()
 
 # Регистрация хендлеров
 dp.include_router(start_handler.router)
-dp.include_router(upload_handler.router)
+dp.include_router(file_handler.router)
 dp.include_router(payment_handler.router)
-dp.include_router(check_handler.router)
+dp.include_router(receipts.router)
 
 async def main():
     # Запуск фоновой задачи по автоудалению неоплаченных PDF
