@@ -22,7 +22,18 @@ def get_accept_keyboard():
 
 def get_pay_keyboard():
     return ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton(text="💳 Оплатить")]],
+        keyboard=[
+            [KeyboardButton(text="💳 Оплатить")],
+            [KeyboardButton(text="❌ Отмена")],
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True,
+    )
+
+
+def get_cancel_keyboard():
+    return ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(text="❌ Отмена")]],
         resize_keyboard=True,
         one_time_keyboard=True,
     )

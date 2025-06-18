@@ -3,7 +3,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import ReplyKeyboardRemove
 from database.db import SessionLocal
 from database.models import User
-from keyboards import get_accept_keyboard, get_main_keyboard
+from keyboards import get_accept_keyboard, get_main_keyboard, get_cancel_keyboard
 from states import CheckPDFStates
 
 router = Router()
@@ -38,5 +38,8 @@ async def accept_terms(message: types.Message, state: FSMContext):
 
 @router.message(lambda msg: msg.text == "📤 Загрузить файл")
 async def upload_prompt(message: types.Message, state: FSMContext):
-    await message.answer("Пришлите PDF-файл для проверки (не более 20 МБ).")
+    await message.answer(
+        "Пришлите PDF-файл для проверки (не более 20 МБ) или нажмите \"Отмена\".",
+        reply_markup=get_cancel_keyboard(),
+    )
     await state.set_state(CheckPDFStates.waiting_file)
