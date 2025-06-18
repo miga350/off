@@ -5,6 +5,7 @@ from config import YOOKASSA_SECRET, SHOP_ID
 from yookassa_api import get_receipt_url
 from states import CheckPDFStates
 from pdf_utils import verify_signature, file_hash
+from keyboards import get_main_keyboard
 from database.db import SessionLocal
 from database.models import Receipt, StatusEnum
 
@@ -55,5 +56,5 @@ async def success_payment(msg: Message, state: FSMContext):
     if result.get('errors'):
         text.append('\n'.join(result['errors']))
 
-    await msg.answer('\n'.join(text))
+    await msg.answer('\n'.join(text), reply_markup=get_main_keyboard())
     await state.clear()

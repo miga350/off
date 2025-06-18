@@ -33,3 +33,5 @@ async def handle_file(msg: Message, state: FSMContext):
         "✅ Файл получен, идёт подготовка к проверке. Для продолжения оплаты нажмите «Оплатить».",
         reply_markup=get_pay_keyboard(),
     )
+
+
