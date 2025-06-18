@@ -1,6 +1,5 @@
 from aiogram import Router, types
 from aiogram.fsm.context import FSMContext
-from aiogram.types import ReplyKeyboardRemove
 from database.db import SessionLocal
 from database.models import User
 from keyboards import get_accept_keyboard, get_main_keyboard, get_cancel_keyboard

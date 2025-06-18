@@ -4,7 +4,6 @@ from aiogram.enums import ParseMode
 from handlers import start_handler, file_handler, payment_handler, receipts, cancel_handler
 from cleaner_unpaid import clean_unpaid_files
 import logging
-import os
 
 from config import BOT_TOKEN
 

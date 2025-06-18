@@ -1,10 +1,10 @@
 from aiogram import Router, F
 from aiogram.types import Message, LabeledPrice
 from aiogram.fsm.context import FSMContext
-from config import YOOKASSA_SECRET, SHOP_ID
+from config import YOOKASSA_SECRET
 from yookassa_api import get_receipt_url
 from states import CheckPDFStates
-from pdf_utils import verify_signature, file_hash
+from pdf_utils import verify_signature
 from keyboards import get_main_keyboard
 from database.db import SessionLocal
 from database.models import Receipt, StatusEnum
