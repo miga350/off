@@ -1,0 +1,11 @@
+aiogram
+asyncpg
+sqlalchemy
+python-dotenv
+uvicorn
+aiohttp
+yookassa
+PyPDF2
+playwright
+pydantic
+fastapi
